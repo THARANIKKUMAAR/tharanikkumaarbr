@@ -264,7 +264,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const contactForm = document.getElementById('contactForm');
     const submitBtn = document.getElementById('submitBtn');
 
-    contactForm.addEventListener('submit', (e) => {
+    contactForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         // Animate button
@@ -273,18 +273,34 @@ document.addEventListener('DOMContentLoaded', () => {
         submitBtn.disabled = true;
         btnSpan.textContent = 'Sending...';
 
-        // Simulate submission
-        setTimeout(() => {
-            btnSpan.textContent = 'Message Sent! ✓';
-            submitBtn.style.background = 'linear-gradient(135deg, #C6A75E, #D4AF37)';
+        try {
+            const formData = new FormData(contactForm);
+            const response = await fetch('https://formspree.io/f/xykdnzdd', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
 
+            if (response.ok) {
+                btnSpan.textContent = 'Message Sent! ✓';
+                submitBtn.style.background = 'linear-gradient(135deg, #C6A75E, #D4AF37)';
+                contactForm.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            btnSpan.textContent = 'Error! Try again.';
+            submitBtn.style.background = 'rgba(211, 47, 47, 0.8)';
+            console.error('Submission error:', error);
+        } finally {
             setTimeout(() => {
                 btnSpan.textContent = originalText;
                 submitBtn.style.background = '';
                 submitBtn.disabled = false;
-                contactForm.reset();
             }, 3000);
-        }, 1500);
+        }
     });
 
     // ===== Parallax on Hero Shapes =====
