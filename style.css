@@ -1050,6 +1050,106 @@ ul {
 }
 
 /* ========================================
+   Experience Section
+   ======================================== */
+.experience-timeline {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.experience-timeline::before {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--border-subtle);
+}
+
+.experience-item {
+    position: relative;
+    padding-left: 40px;
+    margin-bottom: 50px;
+}
+
+.experience-item:last-child {
+    margin-bottom: 0;
+}
+
+.experience-dot {
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent-primary);
+    box-shadow: 0 0 0 4px var(--bg-primary), 0 0 10px var(--accent-primary);
+    z-index: 1;
+}
+
+.experience-content {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    transition: all var(--transition-base);
+}
+
+.experience-item:hover .experience-content {
+    transform: translateX(10px);
+    border-color: var(--border-color);
+    box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.experience-role {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.experience-date {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--accent-primary);
+    background: rgba(198, 167, 94, 0.1);
+    padding: 4px 12px;
+    border-radius: 50px;
+}
+
+.experience-company {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.experience-description {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.experience-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+/* ========================================
    Contact Section
    ======================================== */
 .contact {
@@ -1350,6 +1450,15 @@ ul {
 
     .scroll-indicator {
         display: none;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .experience-content {
+        padding: 24px;
     }
 }
 
