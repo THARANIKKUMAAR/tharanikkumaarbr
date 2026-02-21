@@ -1150,6 +1150,90 @@ ul {
 }
 
 /* ========================================
+   Certifications Subsection
+   ======================================== */
+.certifications-wrapper {
+    margin-top: 80px;
+    padding-top: 60px;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.subsection-header {
+    margin-bottom: 32px;
+}
+
+.subsection-title {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.cert-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 24px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    transition: all var(--transition-base);
+}
+
+.cert-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--border-color);
+    box-shadow: var(--shadow-md), var(--shadow-glow);
+}
+
+.cert-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(198, 167, 94, 0.1);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-primary);
+    flex-shrink: 0;
+}
+
+.cert-info {
+    flex: 1;
+}
+
+.cert-name {
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.cert-issuer {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+}
+
+/* Response for Certifications */
+@media (max-width: 900px) {
+    .certifications-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .certifications-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ========================================
    Contact Section
    ======================================== */
 .contact {
